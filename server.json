@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.filefleet/filefleet",
+  "title": "FileFleet",
+  "description": "What upload forms accept (passport, visa and exam photos), file checks, and links that fix files.",
+  "version": "1.0.0",
+  "websiteUrl": "https://filefleet.io/ai-assistants/",
+  "icons": [
+    {
+      "src": "https://filefleet.io/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.filefleet.io/mcp"
+    }
+  ]
+}

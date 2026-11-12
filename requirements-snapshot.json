@@ -1,0 +1,926 @@
+{
+  "name": "FileFleet upload requirements",
+  "description": "What specific forms accept for photo, signature and document uploads, with the official source for each. Sizes in KB: a file passes if it is at least minKb × 1,024 bytes and at most maxKb × 1,000 bytes.",
+  "updated": "2026-11-11",
+  "url": "https://filefleet.io/requirements.json",
+  "requirements": [
+    {
+      "id": "us-passport",
+      "name": "US passport photo",
+      "issuer": "U.S. Department of State",
+      "tool": "https://filefleet.io/us-passport-photo/",
+      "source": {
+        "label": "travel.state.gov: Passport photos",
+        "url": "https://travel.state.gov/en/passports/apply/help/photos.html"
+      },
+      "checked": "2026-11-11",
+      "note": "Printed: 2 × 2 inches with the head 1 to 1⅜ inches from chin to top of hair. For online renewal FileFleet saves a square JPG of at least 600 × 600 pixels, between 54 KB and 10 MB.",
+      "group": "travel",
+      "aliases": "american usa united states renewal ds82 ds11",
+      "rejections": [
+        "The head is too small or too big: it must be 50–69% of the photo’s height (1 to 1⅜ inches on the print).",
+        "Shadows on the face or behind the head, usually from a ceiling light. Face a window instead.",
+        "The background isn’t plain white or off-white, such as a coloured wall or a door frame in the shot.",
+        "Glasses, even ones you wear every day, unless you have a doctor’s note.",
+        "The photo was edited, filtered or taken with a beauty mode on."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Passport photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 54,
+          "maxKb": 10000,
+          "square": true,
+          "minPx": {
+            "w": 600,
+            "h": 600
+          },
+          "headPct": [
+            50,
+            69
+          ],
+          "print": {
+            "wMm": 51,
+            "hMm": 51,
+            "headMm": [
+              25,
+              35
+            ]
+          },
+          "background": "white",
+          "rules": [
+            "Taken in the last 6 months, in colour.",
+            "Plain white or off-white background, with no shadows.",
+            "Face the camera with a neutral expression and both eyes open.",
+            "No glasses, unless a doctor’s note says you can’t take them off.",
+            "No hats or head coverings, except for religious or medical reasons.",
+            "Not edited or filtered."
+          ],
+          "summary": "JPG, at least 600 × 600 pixels, square, 54 KB to 10 MB, prints at 51 × 51 mm"
+        }
+      ]
+    },
+    {
+      "id": "us-visa",
+      "name": "US visa photo",
+      "issuer": "U.S. Department of State",
+      "tool": "https://filefleet.io/us-visa-photo/",
+      "source": {
+        "label": "travel.state.gov: Visa photo requirements",
+        "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html"
+      },
+      "checked": "2026-11-11",
+      "note": "For the DS-160 and other online visa forms: a square JPEG from 600 × 600 to 1200 × 1200 pixels, 240 KB or less, in colour.",
+      "group": "travel",
+      "aliases": "ds160 ds 160 nonimmigrant american usa united states",
+      "rejections": [
+        "Over 240 KB, which is the most common reason the DS-160 refuses a photo.",
+        "Not square, or smaller than 600 × 600 pixels.",
+        "The head is too small or too big: it must be 50–69% of the height, with the eyes 56–69% from the bottom.",
+        "Shadows, glasses or a background that isn’t plain white or off-white."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Visa photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "maxKb": 240,
+          "square": true,
+          "minPx": {
+            "w": 600,
+            "h": 600
+          },
+          "maxPx": {
+            "w": 1200,
+            "h": 1200
+          },
+          "headPct": [
+            50,
+            69
+          ],
+          "eyePct": [
+            56,
+            69
+          ],
+          "print": {
+            "wMm": 51,
+            "hMm": 51,
+            "headMm": [
+              25,
+              35
+            ]
+          },
+          "background": "white",
+          "rules": [
+            "Taken in the last 6 months, in colour.",
+            "Plain white or off-white background, with no shadows.",
+            "Face the camera with a neutral expression and both eyes open.",
+            "No glasses, unless a doctor’s note says you can’t take them off.",
+            "No hats or head coverings, except for religious or medical reasons.",
+            "Not edited or filtered."
+          ],
+          "summary": "JPG, 600 × 600 to 1200 × 1200 pixels, square, up to 240 KB, prints at 51 × 51 mm"
+        }
+      ]
+    },
+    {
+      "id": "dv-lottery",
+      "name": "Green Card lottery (DV) photo",
+      "issuer": "U.S. Department of State",
+      "tool": "https://filefleet.io/dv-lottery-photo/",
+      "source": {
+        "label": "travel.state.gov: Visa photo requirements",
+        "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html"
+      },
+      "checked": "2026-11-11",
+      "note": "Same digital rules as a US visa photo: a square JPEG from 600 × 600 to 1200 × 1200 pixels, 240 KB or less.",
+      "group": "travel",
+      "aliases": "dv diversity green card lottery american usa united states",
+      "rejections": [
+        "Reusing an old photo: each entry needs a new one, and reused photos can disqualify the entry.",
+        "Over 240 KB, not square, or under 600 × 600 pixels.",
+        "The head too small or too big, or the eyes in the wrong place.",
+        "Glasses, shadows, or a background that isn’t plain white."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Entry photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "maxKb": 240,
+          "square": true,
+          "minPx": {
+            "w": 600,
+            "h": 600
+          },
+          "maxPx": {
+            "w": 1200,
+            "h": 1200
+          },
+          "headPct": [
+            50,
+            69
+          ],
+          "eyePct": [
+            56,
+            69
+          ],
+          "background": "white",
+          "rules": [
+            "Taken in the last 6 months, in colour.",
+            "Plain white or off-white background, with no shadows.",
+            "Face the camera with a neutral expression and both eyes open.",
+            "No glasses, unless a doctor’s note says you can’t take them off.",
+            "No hats or head coverings, except for religious or medical reasons.",
+            "Not edited or filtered.",
+            "A new photo for each entry: reusing last year’s photo can disqualify you."
+          ],
+          "summary": "JPG, 600 × 600 to 1200 × 1200 pixels, square, up to 240 KB"
+        }
+      ]
+    },
+    {
+      "id": "schengen-visa",
+      "name": "Schengen visa photo",
+      "issuer": "Schengen consulates and visa centres",
+      "tool": "https://filefleet.io/schengen-visa-photo/",
+      "source": {
+        "label": "ICAO Doc 9303, the photo standard Schengen visa centres follow",
+        "url": "https://www.icao.int/publications/pages/publication.aspx?docnum=9303"
+      },
+      "checked": "2026-11-11",
+      "note": "35 × 45 mm with the head 32 to 36 mm from chin to top of hair. Some consulates differ, so check your visa centre’s checklist.",
+      "group": "travel",
+      "aliases": "europe european eu",
+      "rejections": [
+        "The head is too small: at 35 × 45 mm it must be 32–36 mm from chin to the top of the hair.",
+        "A background that isn’t plain white or light grey, or shadows behind the head.",
+        "Glare on glasses, or eyes hidden by hair or frames.",
+        "Printed on plain paper or at the wrong size. Print at actual size on photo paper."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Visa photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minPx": {
+            "w": 413,
+            "h": 531
+          },
+          "print": {
+            "wMm": 35,
+            "hMm": 45,
+            "headMm": [
+              32,
+              36
+            ]
+          },
+          "background": "light",
+          "rules": [
+            "Taken in the last 6 months, in colour.",
+            "Plain white or light grey background.",
+            "Face the camera with a neutral expression and your mouth closed.",
+            "Eyes open and clearly visible, with no glare on glasses."
+          ],
+          "summary": "JPG, at least 413 × 531 pixels, prints at 35 × 45 mm"
+        }
+      ]
+    },
+    {
+      "id": "uk-passport-digital",
+      "name": "UK passport photo (online application)",
+      "issuer": "HM Passport Office",
+      "tool": "https://filefleet.io/uk-passport-photo/",
+      "source": {
+        "label": "GOV.UK: Digital photo rules",
+        "url": "https://www.gov.uk/photos-for-passports/digital-photo-rules"
+      },
+      "checked": "2026-11-11",
+      "note": "At least 600 pixels wide and 750 tall, between 50 KB and 10 MB. The passport service crops it, so FileFleet only converts it to JPG and checks the size.",
+      "group": "travel",
+      "aliases": "british britain united kingdom gov",
+      "rejections": [
+        "Cropped too tightly: the passport service wants your head, shoulders and upper body, and crops it itself.",
+        "Smaller than 600 × 750 pixels, or under 50 KB.",
+        "Shadows on the face or background, or a background that isn’t plain and light.",
+        "A selfie at arm’s length, which distorts the face. Ask someone else to take it."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Digital photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 50,
+          "maxKb": 10000,
+          "minPx": {
+            "w": 600,
+            "h": 750
+          },
+          "background": "light",
+          "noCrop": true,
+          "rules": [
+            "Taken in the last month, in colour, clear and in focus.",
+            "Plain light-coloured background, with no shadows or other objects.",
+            "Head, shoulders and upper body in the picture. Don’t crop it: the passport service does that.",
+            "Plain expression, mouth closed, eyes open and visible.",
+            "Not edited by software, and no red eye."
+          ],
+          "summary": "JPG, at least 600 × 750 pixels, 50 KB to 10 MB"
+        }
+      ]
+    },
+    {
+      "id": "ibps",
+      "name": "IBPS application uploads",
+      "issuer": "Institute of Banking Personnel Selection",
+      "tool": "https://filefleet.io/ibps-photo-signature/",
+      "source": {
+        "label": "IBPS notifications, Annexure III (CRP PO/MT-XVI, 2026)",
+        "url": "https://www.ibps.in/"
+      },
+      "checked": "2026-11-11",
+      "note": "The same four uploads are used for IBPS PO, Clerk, RRB and SO. Check your own notification, since sizes can change between recruitments.",
+      "group": "exam",
+      "aliases": "bank banking po clerk rrb so signature thumb declaration india",
+      "rejections": [
+        "The wrong pixel size, such as a photo that isn’t 200 × 230 or a signature that isn’t 140 × 60.",
+        "Under the minimum size: small signatures often come out under 10 KB.",
+        "A signature in capital letters, or a declaration that isn’t in your own handwriting.",
+        "A thumb impression that’s smudged or too faint to read."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 200,
+            "h": 230
+          },
+          "minKb": 20,
+          "maxKb": 50,
+          "background": "light",
+          "rules": [
+            "A recent colour passport-style photo on a light background.",
+            "No caps, hats or dark glasses."
+          ],
+          "summary": "JPG, 200 × 230 pixels, 20 KB to 50 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 140,
+            "h": 60
+          },
+          "minKb": 10,
+          "maxKb": 20,
+          "rules": [
+            "Sign on white paper with a black ink pen.",
+            "Your own signature, not in capital letters."
+          ],
+          "summary": "JPG, 140 × 60 pixels, 10 KB to 20 KB"
+        },
+        {
+          "id": "thumb",
+          "label": "Left thumb impression",
+          "kind": "thumb",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 240,
+            "h": 240
+          },
+          "dpi": 200,
+          "minKb": 20,
+          "maxKb": 50,
+          "rules": [
+            "On white paper, with black or blue ink."
+          ],
+          "summary": "JPG, 240 × 240 pixels, 20 KB to 50 KB"
+        },
+        {
+          "id": "declaration",
+          "label": "Handwritten declaration",
+          "kind": "document",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 800,
+            "h": 400
+          },
+          "dpi": 200,
+          "minKb": 50,
+          "maxKb": 100,
+          "rules": [
+            "Written in English in your own handwriting, on white paper with black ink.",
+            "Not in capital letters."
+          ],
+          "summary": "JPG, 800 × 400 pixels, 50 KB to 100 KB"
+        }
+      ]
+    },
+    {
+      "id": "neet-ug",
+      "name": "NEET (UG) application uploads",
+      "issuer": "National Testing Agency (NTA)",
+      "tool": "https://filefleet.io/neet-photo-signature/",
+      "source": {
+        "label": "NTA: NEET (UG) 2026 Information Bulletin, chapter 3",
+        "url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/02/202602231394640855.pdf"
+      },
+      "checked": "2026-11-11",
+      "note": "From the NEET (UG) 2026 bulletin. It gives two ranges for the finger and thumb impressions, 10–200 KB and 50–300 KB, so FileFleet makes them 50–200 KB, which passes both. A live photo is also taken during the application, and you need 4 to 6 printed postcard-size (4 × 6 inch) photos with a white background for later. Compare with the new bulletin when NEET 2027 registration opens.",
+      "group": "exam",
+      "aliases": "neet ug nta medical mbbs bds ayush entrance india",
+      "rejections": [
+        "A photo with a coloured background, or with the ears hidden by hair.",
+        "A photo, signature or impression under 10 KB (or 50 KB for impressions): small images often come out too small.",
+        "A certificate PDF over 300 KB, or under 50 KB.",
+        "Smudged or faint finger and thumb impressions.",
+        "A photo that doesn’t match the live photo taken during the application."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Passport-size photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 200,
+          "background": "white",
+          "rules": [
+            "A recent photo: NEET (UG) 2026 asked for one taken after 1 January 2026.",
+            "White background, with 80% of the face visible, including the ears.",
+            "No mask. Glasses only if you wear them every day.",
+            "No Polaroid or computer-made photos."
+          ],
+          "summary": "JPG, 10 KB to 200 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 100,
+          "rules": [
+            "Your own signature, with no corrections."
+          ],
+          "summary": "JPG, 10 KB to 100 KB"
+        },
+        {
+          "id": "fingers",
+          "label": "Finger and thumb impressions",
+          "kind": "thumb",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 50,
+          "maxKb": 200,
+          "rules": [
+            "Finger and thumb impressions of both hands, clear enough to read: unclear impressions are rejected."
+          ],
+          "summary": "JPG, 50 KB to 200 KB"
+        },
+        {
+          "id": "certificates",
+          "label": "Class 10 certificate and other documents",
+          "kind": "document",
+          "formats": [
+            "pdf"
+          ],
+          "minKb": 50,
+          "maxKb": 300,
+          "rules": [],
+          "summary": "PDF, 50 KB to 300 KB",
+          "fixWith": "https://filefleet.io/compress-pdf-to-200kb/"
+        }
+      ]
+    },
+    {
+      "id": "jee-main",
+      "name": "JEE (Main) application uploads",
+      "issuer": "National Testing Agency (NTA)",
+      "tool": "https://filefleet.io/jee-main-photo-signature/",
+      "source": {
+        "label": "NTA: JEE (Main) 2027 Information Bulletin, page 8",
+        "url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/10/202610241890224107.pdf"
+      },
+      "checked": "2026-11-11",
+      "note": "For both sessions of JEE (Main) 2027. A live photo is also taken during the application, against a white background with good light. Disability (UDID) certificates and, for foreign nationals, the passport are PDFs of 50–300 KB too.",
+      "group": "exam",
+      "aliases": "jee main mains nta engineering iit nit jee2027 entrance india",
+      "rejections": [
+        "A photo with a coloured background, or with the ears hidden.",
+        "A photo or signature under 10 KB: small scans often come out too small.",
+        "A photo over 200 KB or a signature over 100 KB, straight from a phone camera.",
+        "A Class 10 PDF over 300 KB or under 50 KB."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 200,
+          "background": "white",
+          "rules": [
+            "A recent passport-size colour photo.",
+            "White background, with 80% of the face visible, including the ears.",
+            "No mask."
+          ],
+          "summary": "JPG, 10 KB to 200 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 100,
+          "rules": [
+            "Clearly legible."
+          ],
+          "summary": "JPG, 10 KB to 100 KB"
+        },
+        {
+          "id": "certificate",
+          "label": "Class 10 certificate or mark sheet",
+          "kind": "document",
+          "formats": [
+            "pdf"
+          ],
+          "minKb": 50,
+          "maxKb": 300,
+          "rules": [],
+          "summary": "PDF, 50 KB to 300 KB",
+          "fixWith": "https://filefleet.io/compress-pdf-to-200kb/"
+        }
+      ]
+    },
+    {
+      "id": "cuet-ug",
+      "name": "CUET (UG) application uploads",
+      "issuer": "National Testing Agency (NTA)",
+      "tool": "https://filefleet.io/cuet-photo-signature/",
+      "source": {
+        "label": "NTA: CUET (UG) 2026 Information Bulletin, page 9",
+        "url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/202601031633478370.pdf"
+      },
+      "checked": "2026-11-11",
+      "note": "From the CUET (UG) 2026 bulletin. Note the signature limit is 10–50 KB, smaller than for NEET or JEE. An ID proof (JPG, 10–200 KB) is needed only if you don’t verify through Aadhaar or DigiLocker. Compare with the new bulletin when CUET 2027 registration opens.",
+      "group": "exam",
+      "aliases": "cuet ug nta central university common entrance test du delhi university india",
+      "rejections": [
+        "A signature over 50 KB: CUET’s limit is lower than other NTA exams.",
+        "A photo with a coloured background, or with the ears hidden.",
+        "A photo or signature under 10 KB."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 200,
+          "background": "white",
+          "rules": [
+            "A passport-size colour photo, clearly legible.",
+            "White background with good light, and 80% of the face visible, including the ears.",
+            "No mask."
+          ],
+          "summary": "JPG, 10 KB to 200 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 50,
+          "rules": [
+            "Clearly legible."
+          ],
+          "summary": "JPG, 10 KB to 50 KB"
+        },
+        {
+          "id": "udid",
+          "label": "Disability (UDID) certificate, if it applies",
+          "kind": "document",
+          "formats": [
+            "pdf"
+          ],
+          "minKb": 50,
+          "maxKb": 300,
+          "rules": [],
+          "summary": "PDF, 50 KB to 300 KB",
+          "fixWith": "https://filefleet.io/compress-pdf-to-200kb/"
+        }
+      ]
+    },
+    {
+      "id": "gate",
+      "name": "GATE application uploads",
+      "issuer": "GATE 2027 organising institute (IIT Madras)",
+      "tool": "https://filefleet.io/gate-photo-signature/",
+      "source": {
+        "label": "GATE 2027: Photograph and signature",
+        "url": "https://gate2027.iitm.ac.in/photograph_and_signature"
+      },
+      "checked": "2026-11-11",
+      "note": "GATE sets a pixel range rather than one size: FileFleet makes the photo 420 × 540 and the signature 480 × 150, inside both ranges and shapes.",
+      "group": "exam",
+      "aliases": "gate graduate aptitude test engineering iit mtech psu india",
+      "rejections": [
+        "A photo larger than 530 × 690 or smaller than 200 × 260 pixels.",
+        "The wrong shape: a square photo, or a signature that isn’t about three times as wide as it is tall.",
+        "A signature in a colour other than black or dark blue.",
+        "Too much empty space: the face should fill 60–70% of the photo and the signature 70–80% of its image."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 5,
+          "maxKb": 600,
+          "minPx": {
+            "w": 200,
+            "h": 260
+          },
+          "maxPx": {
+            "w": 530,
+            "h": 690
+          },
+          "background": "white",
+          "rules": [
+            "Passport-size, 3.5 cm wide and 4.5 cm tall: width ÷ height between 0.66 and 0.89.",
+            "White background with no other objects or people.",
+            "Your face fills 60–70% of the photo."
+          ],
+          "summary": "JPG, 200 × 260 to 530 × 690 pixels, 5 KB to 600 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 3,
+          "maxKb": 300,
+          "minPx": {
+            "w": 250,
+            "h": 80
+          },
+          "maxPx": {
+            "w": 580,
+            "h": 180
+          },
+          "rules": [
+            "In black or dark blue ink only.",
+            "Width 2.75 to 3.75 times the height, with the signature filling 70–80% of the image."
+          ],
+          "summary": "JPG, 250 × 80 to 580 × 180 pixels, 3 KB to 300 KB"
+        }
+      ]
+    },
+    {
+      "id": "sbi-clerk",
+      "name": "SBI Clerk (Junior Associates) uploads",
+      "issuer": "State Bank of India",
+      "tool": "https://filefleet.io/sbi-clerk-photo-signature/",
+      "source": {
+        "label": "SBI: Junior Associates 2026 advertisement (CRPD/CR/2026-27/17), guidelines for uploading documents",
+        "url": "https://sbi.bank.in/webfiles/uploads/files_2627/08/JA_2026_Detailed_Advt_Eng.pdf"
+      },
+      "checked": "2026-11-11",
+      "note": "The declaration text is: “I, ______ (Name of the candidate), Date of Birth ______, hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required. The signature, photograph and left thumb impression is of mine.”",
+      "group": "exam",
+      "aliases": "sbi clerk junior associate associates ja state bank india bank exam customer support sales",
+      "rejections": [
+        "The wrong pixel size, such as a photo that isn’t 200 × 230 or a signature that isn’t 140 × 60.",
+        "A signature under 10 KB, which tiny 140 × 60 images often are.",
+        "A declaration that isn’t in your own handwriting, or differs from the set text.",
+        "A thumb impression that’s smudged or too faint."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 200,
+            "h": 230
+          },
+          "minKb": 20,
+          "maxKb": 50,
+          "background": "light",
+          "rules": [
+            "In colour, against a light-coloured, preferably white, background."
+          ],
+          "summary": "JPG, 200 × 230 pixels, 20 KB to 50 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 140,
+            "h": 60
+          },
+          "minKb": 10,
+          "maxKb": 20,
+          "rules": [
+            "Sign on white paper with a black ink pen."
+          ],
+          "summary": "JPG, 140 × 60 pixels, 10 KB to 20 KB"
+        },
+        {
+          "id": "thumb",
+          "label": "Left thumb impression",
+          "kind": "thumb",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 240,
+            "h": 240
+          },
+          "dpi": 200,
+          "minKb": 20,
+          "maxKb": 50,
+          "rules": [
+            "On white paper, with black or blue ink. The right thumb can be used if the left isn’t available."
+          ],
+          "summary": "JPG, 240 × 240 pixels, 20 KB to 50 KB"
+        },
+        {
+          "id": "declaration",
+          "label": "Handwritten declaration",
+          "kind": "document",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 800,
+            "h": 400
+          },
+          "dpi": 200,
+          "minKb": 50,
+          "maxKb": 100,
+          "rules": [
+            "Written clearly in English, in your own handwriting, on white paper with black ink."
+          ],
+          "summary": "JPG, 800 × 400 pixels, 50 KB to 100 KB"
+        }
+      ]
+    },
+    {
+      "id": "india-evisa",
+      "name": "India e-Visa photo",
+      "issuer": "Government of India (Bureau of Immigration)",
+      "tool": "https://filefleet.io/india-evisa-photo/",
+      "source": {
+        "label": "indianvisaonline.gov.in: e-Visa",
+        "url": "https://indianvisaonline.gov.in/evisa/tvoa.html"
+      },
+      "checked": "2026-11-11",
+      "note": "The photo must be a square JPEG between 10 KB and 1 MB, and the scan of your passport’s photo page a PDF between 10 and 300 KB. FileFleet saves the photo at 1200 × 1200 pixels.",
+      "group": "travel",
+      "aliases": "india indian e visa evisa e-visa etourist ebusiness emedical tourist visa",
+      "rejections": [
+        "Not square: the height and width must be equal.",
+        "Shadows on the face or the background, or a dark or busy background.",
+        "A passport scan saved as a photo instead of a PDF, or a PDF over 300 KB."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 1000,
+          "square": true,
+          "background": "light",
+          "rules": [
+            "A plain white or light-coloured background.",
+            "No shadows on the face or the background."
+          ],
+          "summary": "JPG, square, 10 KB to 1 MB"
+        },
+        {
+          "id": "passport",
+          "label": "Passport bio page",
+          "kind": "document",
+          "formats": [
+            "pdf"
+          ],
+          "minKb": 10,
+          "maxKb": 300,
+          "rules": [],
+          "summary": "PDF, 10 KB to 300 KB",
+          "fixWith": "https://filefleet.io/compress-pdf-to-200kb/"
+        }
+      ]
+    },
+    {
+      "id": "india-oci",
+      "name": "OCI card photo and signature",
+      "issuer": "Government of India (Ministry of Home Affairs)",
+      "tool": "https://filefleet.io/oci-photo-signature/",
+      "source": {
+        "label": "Embassy of India, The Hague: OCI checklist (February 2026)",
+        "url": "https://www.indianembassynetherlands.gov.in/content/OCI-Checklist-20260217.pdf"
+      },
+      "checked": "2026-11-11",
+      "note": "The OCI form takes the photo and signature together up to 1 MB, so FileFleet keeps each under 500 KB. The photo can be 200 × 200 to 3500 × 3500 pixels; FileFleet makes it 600 × 600 and the signature 600 × 200.",
+      "group": "travel",
+      "aliases": "oci overseas citizen of india card indian nri pio",
+      "rejections": [
+        "A photo that isn’t square.",
+        "A signature that isn’t three times as wide as it is tall.",
+        "Photo and signature together over 1 MB.",
+        "A blurry photo, or a printed photo at the appointment that doesn’t match the one uploaded."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "maxKb": 500,
+          "square": true,
+          "minPx": {
+            "w": 200,
+            "h": 200
+          },
+          "maxPx": {
+            "w": 3500,
+            "h": 3500
+          },
+          "rules": [
+            "Square: the height and width must be equal.",
+            "The same photo you bring to your appointment."
+          ],
+          "summary": "JPG, 200 × 200 to 3500 × 3500 pixels, square, up to 500 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "maxKb": 500,
+          "minPx": {
+            "w": 200,
+            "h": 67
+          },
+          "rules": [
+            "Three times as wide as it is tall (a 1:3 height-to-width ratio).",
+            "Children under 5 who can’t sign upload a left thumb impression in blue or black ink."
+          ],
+          "summary": "JPG, at least 200 × 67 pixels, up to 500 KB"
+        }
+      ]
+    },
+    {
+      "id": "china-visa",
+      "name": "China visa photo (online form)",
+      "issuer": "Chinese Visa Application Service Centres",
+      "tool": "https://filefleet.io/china-visa-photo/",
+      "source": {
+        "label": "Chinese Visa Application Service Center: How to upload the photo",
+        "url": "https://visaforchina.cn/LON2_EN/generalinformation/faq/283377.shtml"
+      },
+      "checked": "2026-11-11",
+      "note": "For the online visa application form (COVA): a JPEG no bigger than 354 × 472 pixels, between 40 and 120 KB. After three failed uploads the form asks you to bring a printed photo to the visa centre instead.",
+      "group": "travel",
+      "aliases": "china chinese visa cova prc mainland",
+      "rejections": [
+        "Bigger than 354 × 472 pixels, which phone photos always are.",
+        "Under 40 KB or over 120 KB.",
+        "A background that isn’t white or close to white.",
+        "An old photo: it must be from the last 6 months."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Visa photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "px": {
+            "w": 354,
+            "h": 472
+          },
+          "minKb": 40,
+          "maxKb": 120,
+          "background": "white",
+          "rules": [
+            "Taken in the last 6 months.",
+            "A white or near-white background.",
+            "A photo of you: uploads of someone else’s photo are refused."
+          ],
+          "summary": "JPG, 354 × 472 pixels, 40 KB to 120 KB"
+        }
+      ]
+    }
+  ]
+}

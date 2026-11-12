@@ -1,0 +1,32 @@
+{
+  "name": "filefleet-mcp",
+  "version": "1.0.0",
+  "description": "FileFleet MCP server: upload requirements, file checks and requirement links for AI assistants.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build-view": "node build-view.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "1.7.5",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "homepage": "https://filefleet.io/ai-assistants/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filefleet/filefleet-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/filefleet/filefleet-mcp/issues"
+  }
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FileFleet</title>
+<style>
+  :root { color-scheme: light dark; --ink: #1b2a36; --muted: #4c5f6b; --card: #d6fbff; --line: #e2eaf0; --bg: #ffffff; --ok: #1f6e8c; --bad: #c8102e; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #e8f0f5; --muted: #a9bccb; --card: #12343a; --line: #2a3a46; --bg: #0f1a22; --ok: #66c4ff; --bad: #ff9b85; } }
+  body { margin: 0; padding: 14px; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+  .card { padding: 12px 14px; border-radius: 12px; background: var(--card); }
+  .card p { margin: 0; } #title { font-weight: 700; } .card ul { margin: 6px 0 0; padding-left: 1.2em; } #note { margin-top: 6px; font-size: 13px; }
+  #drop { display: block; margin: 12px 0; padding: 18px; border: 2px dashed var(--line); border-radius: 12px; text-align: center; cursor: pointer; }
+  #drop input { display: block; margin: 8px auto 0; }
+  #results { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  #results > li { padding: 10px 12px; border: 1px solid var(--line); border-left: 5px solid #66f4ff; border-radius: 10px; }
+  #results > li.fail { border-left-color: #ff9b85; }
+  #results ul { margin: 6px 0 0; padding: 0; list-style: none; font-size: 13px; } .ok { color: var(--ok); } .warn { color: var(--bad); }
+  .verdict { float: right; font-size: 13px; font-weight: 700; } .fail .verdict { color: var(--bad); } .pass .verdict { color: var(--ok); }
+  button { margin-top: 12px; padding: 10px 16px; border: 0; border-radius: 10px; background: #1b2a36; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  small { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="app" hidden>
+  <div class="card"><p id="title"></p><ul id="rules"></ul><p id="note"></p></div>
+  <label id="drop">Drop your files here to check them<input id="files" type="file" multiple accept="image/*,.heic,.heif,.pdf" /></label>
+  <ul id="results"></ul>
+  <div id="fix-wrap" hidden><button id="fix" type="button">Fix them on FileFleet</button></div>
+  <small>Your files are checked inside this window and never sent anywhere. FileFleet fixes them on your own device.</small>
+</div>
+<script>/*BUNDLE*/</script>
+</body>
+</html>
