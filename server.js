@@ -98,7 +98,18 @@ function newServer() {
         };
       }
       const text = found
-        .map((r) => [`${r.name} (${r.issuer}), id "${r.id}". Make one at ${r.tool}`, ...r.uploads.map((u) => `- ${u.label}: ${u.summary}${u.headPct ? `; head ${u.headPct[0]}–${u.headPct[1]}% of the height` : ''}${u.eyePct ? `; eyes ${u.eyePct[0]}–${u.eyePct[1]}% from the bottom` : ''}`), `Source: ${r.source.label} (${r.source.url}), checked ${r.checked}.`].join('\n'))
+        .map((r) =>
+          [
+            `${r.name} (${r.issuer}), id "${r.id}". Make one at ${r.tool}`,
+            // A status (such as whether an entry period is open) comes first, so it's never missed.
+            r.status ? `Status as of ${r.status.checked}: ${r.status.text} ${r.status.source.url}` : '',
+            ...r.uploads.map((u) => `- ${u.label}: ${u.summary}${u.headPct ? `; head ${u.headPct[0]}–${u.headPct[1]}% of the height` : ''}${u.eyePct ? `; eyes ${u.eyePct[0]}–${u.eyePct[1]}% from the bottom` : ''}`),
+            r.note ? `Note: ${r.note}` : '',
+            `Source: ${[r.source, ...(r.moreSources ?? [])].map((x) => `${x.label} (${x.url})`).join('; ')}, checked ${r.checked}.`,
+          ]
+            .filter(Boolean)
+            .join('\n'),
+        )
         .join('\n\n');
       const lead = exact ? '' : `FileFleet has no preset that matches "${query}" exactly, so don't apply these rules to it. Closest presets:\n\n`;
       return { content: [{ type: 'text', text: lead + text }], structuredContent: { exact, requirements: found } };
@@ -136,7 +147,9 @@ function newServer() {
         const slot = upload ? r.uploads.find((u) => u.id === upload) : r.uploads[0];
         if (!slot) return { isError: true, content: [{ type: 'text', text: `${r.name} has these uploads: ${r.uploads.map((u) => `${r.id}/${u.id}`).join(', ')}.` }] };
         rules = rulesFromSlot(slot);
-        fixAt = r.tool;
+        // A PDF where only images are taken needs PDF to JPG; other document uploads have their own fix page.
+        fixAt =
+          file.type === 'pdf' && !slot.formats.includes('pdf') ? `${SITE}/pdf-to-jpg/` : slot.kind === 'document' && slot.fixWith ? slot.fixWith : r.tool;
       } else if (input) {
         rules = rulesFromInput(input);
         fixAt = linkFor(rules);
