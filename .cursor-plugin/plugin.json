@@ -1,0 +1,15 @@
+{
+  "name": "filefleet",
+  "displayName": "FileFleet",
+  "version": "1.0.1",
+  "description": "What upload forms accept (passport, visa and exam photo rules, with official sources), file checks, and links that fix files to fit. No sign-in.",
+  "author": {
+    "name": "FileFleet"
+  },
+  "homepage": "https://filefleet.io/ai-assistants/?utm_source=cursor&utm_medium=directory",
+  "repository": "https://github.com/FileFleet/filefleet-mcp",
+  "license": "MIT",
+  "keywords": ["file upload", "passport photo", "visa photo", "exam photo", "file size", "pdf", "requirements"],
+  "logo": "https://filefleet.io/favicon.svg",
+  "mcpServers": "./.mcp.json"
+}
