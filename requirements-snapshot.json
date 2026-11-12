@@ -1,7 +1,7 @@
 {
   "name": "FileFleet upload requirements",
   "description": "What specific forms accept for photo, signature and document uploads, with the official source for each. Sizes in KB: a file passes if it is at least minKb × 1,024 bytes and at most maxKb × 1,000 bytes.",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "url": "https://filefleet.io/requirements.json",
   "requirements": [
     {
@@ -13,8 +13,20 @@
         "label": "travel.state.gov: Passport photos",
         "url": "https://travel.state.gov/en/passports/apply/help/photos.html"
       },
-      "checked": "2026-11-11",
-      "note": "Printed: 2 × 2 inches with the head 1 to 1⅜ inches from chin to top of hair. For online renewal FileFleet saves a square JPG of at least 600 × 600 pixels, between 54 KB and 10 MB.",
+      "moreSources": [
+        {
+          "label": "travel.state.gov: Uploading a digital photo (online renewal)",
+          "url": "https://travel.state.gov/content/travel/en/passports/how-apply/online-renewal-photo.html"
+        }
+      ],
+      "checked": "2026-11-12",
+      "changes": [
+        {
+          "date": "2026-11-12",
+          "text": "Re-checked against the State Department. Added its online renewal rules (the renewal tool crops the photo itself) and its rule against uniforms, camouflage and headphones."
+        }
+      ],
+      "note": "Printed: 2 × 2 inches with the head 1 to 1⅜ inches from chin to top of hair. For online renewal the photo must be a colour JPEG of at least 600 × 600 pixels, between 54 KB and 10 MB, and the State Department’s photo tool crops it to size. FileFleet saves a square JPG inside those limits, with room around your head and shoulders.",
       "group": "travel",
       "aliases": "american usa united states renewal ds82 ds11",
       "rejections": [
@@ -58,7 +70,8 @@
             "Face the camera with a neutral expression and both eyes open.",
             "No glasses, unless a doctor’s note says you can’t take them off.",
             "No hats or head coverings, except for religious or medical reasons.",
-            "Not edited or filtered."
+            "Not edited or filtered.",
+            "No uniforms, camouflage, headphones or wireless earbuds."
           ],
           "summary": "JPG, at least 600 × 600 pixels, square, 54 KB to 10 MB, prints at 51 × 51 mm"
         }
@@ -73,8 +86,14 @@
         "label": "travel.state.gov: Visa photo requirements",
         "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html"
       },
-      "checked": "2026-11-11",
-      "note": "For the DS-160 and other online visa forms: a square JPEG from 600 × 600 to 1200 × 1200 pixels, 240 KB or less, in colour.",
+      "moreSources": [
+        {
+          "label": "travel.state.gov: Digital image requirements",
+          "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos/digital-image-requirements.html"
+        }
+      ],
+      "checked": "2026-11-12",
+      "note": "For the DS-160 and other online visa forms: a square colour JPEG from 600 × 600 to 1200 × 1200 pixels, 240 KB or less.",
       "group": "travel",
       "aliases": "ds160 ds 160 nonimmigrant american usa united states",
       "rejections": [
@@ -139,15 +158,40 @@
         "label": "travel.state.gov: Visa photo requirements",
         "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html"
       },
-      "checked": "2026-11-11",
-      "note": "Same digital rules as a US visa photo: a square JPEG from 600 × 600 to 1200 × 1200 pixels, 240 KB or less.",
+      "moreSources": [
+        {
+          "label": "Federal Register: Diversity Visa passport rule (March 2026)",
+          "url": "https://public-inspection.federalregister.gov/2026-04737.pdf"
+        },
+        {
+          "label": "Federal Register: $1 registration fee (September 2025)",
+          "url": "https://public-inspection.federalregister.gov/2025-17851.pdf"
+        }
+      ],
+      "checked": "2026-11-12",
+      "status": {
+        "text": "DV-2027 entries aren’t open. The State Department hasn’t announced the entry period yet; the official entry site says “Entries are not being accepted at this time.” Once it opens, enter only on the official site:",
+        "checked": "2026-11-12",
+        "source": {
+          "label": "dvprogram.state.gov",
+          "url": "https://dvprogram.state.gov/"
+        }
+      },
+      "changes": [
+        {
+          "date": "2026-11-12",
+          "text": "Added the passport scan the entry now asks for (JPEG, up to 5 MB) and the $1 registration fee, from the Federal Register. Added the status of DV-2027 entries."
+        }
+      ],
+      "note": "The photo has the same digital rules as a US visa photo: a square JPEG from 600 × 600 to 1200 × 1200 pixels, 240 KB or less. Since a rule that took effect in April 2026, the entry also needs your passport’s number and expiry date and a JPEG scan of its biographic and signature page, up to 5 MB, and registering costs $1.",
       "group": "travel",
-      "aliases": "dv diversity green card lottery american usa united states",
+      "aliases": "dv diversity green card lottery american usa united states dv2027 dv-2027 passport scan",
       "rejections": [
         "Reusing an old photo: each entry needs a new one, and reused photos can disqualify the entry.",
         "Over 240 KB, not square, or under 600 × 600 pixels.",
         "The head too small or too big, or the eyes in the wrong place.",
-        "Glasses, shadows, or a background that isn’t plain white."
+        "Glasses, shadows, or a background that isn’t plain white.",
+        "A passport scan saved as a PDF, over 5 MB, or of a passport that has expired."
       ],
       "uploads": [
         {
@@ -186,6 +230,18 @@
             "A new photo for each entry: reusing last year’s photo can disqualify you."
           ],
           "summary": "JPG, 600 × 600 to 1200 × 1200 pixels, square, up to 240 KB"
+        },
+        {
+          "id": "passport",
+          "label": "Passport scan (biographic and signature page)",
+          "kind": "document",
+          "formats": [
+            "jpg"
+          ],
+          "maxKb": 5000,
+          "rules": [],
+          "summary": "JPG, up to 5 MB",
+          "fixWith": "https://filefleet.io/compress-image/"
         }
       ]
     },
@@ -248,7 +304,13 @@
         "label": "GOV.UK: Digital photo rules",
         "url": "https://www.gov.uk/photos-for-passports/digital-photo-rules"
       },
-      "checked": "2026-11-11",
+      "checked": "2026-11-12",
+      "changes": [
+        {
+          "date": "2026-11-12",
+          "text": "Re-checked against GOV.UK (page updated 9 September 2026). Added its rule on glasses."
+        }
+      ],
       "note": "At least 600 pixels wide and 750 tall, between 50 KB and 10 MB. The passport service crops it, so FileFleet only converts it to JPG and checks the size.",
       "group": "travel",
       "aliases": "british britain united kingdom gov",
@@ -279,7 +341,8 @@
             "Plain light-coloured background, with no shadows or other objects.",
             "Head, shoulders and upper body in the picture. Don’t crop it: the passport service does that.",
             "Plain expression, mouth closed, eyes open and visible.",
-            "Not edited by software, and no red eye."
+            "Not edited by software, and no red eye.",
+            "Glasses only if you must wear them: no sunglasses or tinted lenses, and no glare, reflections or frames over your eyes."
           ],
           "summary": "JPG, at least 600 × 750 pixels, 50 KB to 10 MB"
         }
@@ -919,6 +982,279 @@
             "A photo of you: uploads of someone else’s photo are refused."
           ],
           "summary": "JPG, 354 × 472 pixels, 40 KB to 120 KB"
+        }
+      ]
+    },
+    {
+      "id": "nz-passport",
+      "name": "New Zealand passport photo (online)",
+      "issuer": "Te Tari Taiwhenua, Department of Internal Affairs (New Zealand Passports)",
+      "tool": "https://filefleet.io/nz-passport-photo/",
+      "source": {
+        "label": "New Zealand Passports: Passport photos",
+        "url": "https://www.passports.govt.nz/passport-photos/"
+      },
+      "checked": "2026-11-12",
+      "note": "For online applications: a colour JPEG in a 3:4 shape, 900–4500 pixels wide and 1200–6000 pixels high, between 250 KB and 5 MB. FileFleet makes it 1800 × 2400 pixels.",
+      "group": "travel",
+      "aliases": "new zealand nz kiwi passport renewal online dia internal affairs",
+      "rejections": [
+        "A selfie, or a photo taken too close, which distorts the face.",
+        "Under 250 KB, which phone apps that shrink photos often produce.",
+        "The wrong shape: it must be 3:4, taller than it is wide.",
+        "Shadows on the face or the wall, or objects behind the head.",
+        "Tinted or thick-framed glasses, or glare on the lenses."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Passport photo",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 250,
+          "maxKb": 5000,
+          "minPx": {
+            "w": 900,
+            "h": 1200
+          },
+          "maxPx": {
+            "w": 4500,
+            "h": 6000
+          },
+          "background": "light",
+          "rules": [
+            "A colour photo in a 3:4 shape (portrait), taken less than 6 months ago.",
+            "A plain, light-coloured background, with no shadows or objects behind your head.",
+            "Taken by someone else from about 1.5 m away at eye level: selfies are rejected.",
+            "Prescription glasses only if they aren’t tinted or thick-framed, with no glare. No sunglasses.",
+            "No editing, filters or AI tools that change how you look."
+          ],
+          "summary": "JPG, 900 × 1200 to 4500 × 6000 pixels, 250 KB to 5 MB"
+        }
+      ]
+    },
+    {
+      "id": "singapore-ica",
+      "name": "Singapore ICA photo (e-Services)",
+      "issuer": "Immigration & Checkpoints Authority (ICA), Singapore",
+      "tool": "https://filefleet.io/singapore-ica-photo/",
+      "source": {
+        "label": "ICA: Photo guidelines (last updated 30 October 2026)",
+        "url": "https://www.ica.gov.sg/photo-guidelines"
+      },
+      "checked": "2026-11-12",
+      "note": "ICA’s e-Services take a photo of exactly 400 × 514 pixels, as a JPG, JPEG, PNG, HEIC or HEIF file of up to 8 MB. FileFleet saves a 400 × 514 JPG.",
+      "group": "travel",
+      "aliases": "singapore sg ica passport visa nric ic pr permanent resident e-services 400x514",
+      "rejections": [
+        "Not exactly 400 × 514 pixels, which phone photos never are.",
+        "A selfie: ICA says they usually don’t meet its requirements.",
+        "A file over 8 MB."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photo",
+          "kind": "face",
+          "formats": [
+            "jpg",
+            "png",
+            "heic"
+          ],
+          "maxKb": 8000,
+          "px": {
+            "w": 400,
+            "h": 514
+          },
+          "rules": [
+            "Selfies taken with a mobile phone usually don’t meet ICA’s requirements: have someone else take your photo.",
+            "Check the Dos and Don’ts on ICA’s photo guidelines page before you upload."
+          ],
+          "summary": "JPG or PNG or HEIC, 400 × 514 pixels, up to 8 MB"
+        }
+      ]
+    },
+    {
+      "id": "ugc-net",
+      "name": "UGC NET application uploads",
+      "issuer": "National Testing Agency (NTA)",
+      "tool": "https://filefleet.io/ugc-net-photo-signature/",
+      "source": {
+        "label": "NTA: UGC-NET December 2026 Information Bulletin (updated 16 October 2026), pages 5–6",
+        "url": "https://cdnbbsr.s3waas.gov.in/s301eee509ee2f68dc6014898c309e86bf/uploads/2026/10/20261016860019603.pdf"
+      },
+      "checked": "2026-11-12",
+      "note": "From the UGC-NET December 2026 bulletin: photo 10–200 KB, signature 10–50 KB (earlier bulletins said 4–30 KB), and a UDID certificate as a 50–300 KB PDF if it applies. You also take a live photo with your webcam or phone while filling in the form.",
+      "group": "exam",
+      "aliases": "ugc net nta national eligibility test jrf assistant professor phd india",
+      "rejections": [
+        "A signature over 50 KB, or under 10 KB.",
+        "A photo with the ears hidden, a mask, or a coloured background.",
+        "Someone else’s photo or signature, which NTA treats as unfair means.",
+        "A UDID certificate over 300 KB."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 200,
+          "background": "white",
+          "rules": [
+            "A recent photo, in colour or black and white.",
+            "80% of the face visible, including the ears, against a white background.",
+            "No mask."
+          ],
+          "summary": "JPG, 10 KB to 200 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 50,
+          "rules": [
+            "Your own signature, clearly legible."
+          ],
+          "summary": "JPG, 10 KB to 50 KB"
+        },
+        {
+          "id": "udid",
+          "label": "Disability (UDID) certificate, if it applies",
+          "kind": "document",
+          "formats": [
+            "pdf"
+          ],
+          "minKb": 50,
+          "maxKb": 300,
+          "rules": [
+            "Clearly legible."
+          ],
+          "summary": "PDF, 50 KB to 300 KB",
+          "fixWith": "https://filefleet.io/compress-pdf-to-200kb/"
+        }
+      ]
+    },
+    {
+      "id": "csir-net",
+      "name": "CSIR NET application uploads",
+      "issuer": "National Testing Agency (NTA)",
+      "tool": "https://filefleet.io/csir-net-photo-signature/",
+      "source": {
+        "label": "NTA: Joint CSIR-UGC NET December 2026 Information Bulletin, pages 6–7",
+        "url": "https://cdnbbsr.s3waas.gov.in/s3efdf562ce2fb0ad460fd8e9d33e57f57/uploads/2026/10/202610071407707951.pdf"
+      },
+      "checked": "2026-11-12",
+      "note": "From the Joint CSIR-UGC NET December 2026 bulletin: photo 10–200 KB, signature 10–50 KB, and the category certificate, UDID certificate or result-awaited attestation form as PDFs of 50–300 KB. An ID proof (JPG, 10–200 KB) is needed only if you don’t verify through Aadhaar or DigiLocker. You also take a live photo while filling in the form.",
+      "group": "exam",
+      "aliases": "csir net csir-ugc net jrf lectureship nta science india",
+      "rejections": [
+        "A signature over 50 KB, or under 10 KB.",
+        "A photo with the ears hidden, a mask, or a coloured background.",
+        "A certificate uploaded as a photo instead of a PDF, or a PDF over 300 KB."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 200,
+          "background": "white",
+          "rules": [
+            "In colour, clearly legible.",
+            "80% of the face visible, including the ears, against a white background.",
+            "No mask."
+          ],
+          "summary": "JPG, 10 KB to 200 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 50,
+          "rules": [
+            "Clearly legible."
+          ],
+          "summary": "JPG, 10 KB to 50 KB"
+        },
+        {
+          "id": "certificate",
+          "label": "Category, UDID or result-awaited form, if it applies",
+          "kind": "document",
+          "formats": [
+            "pdf"
+          ],
+          "minKb": 50,
+          "maxKb": 300,
+          "rules": [
+            "Clearly legible."
+          ],
+          "summary": "PDF, 50 KB to 300 KB",
+          "fixWith": "https://filefleet.io/compress-pdf-to-200kb/"
+        }
+      ]
+    },
+    {
+      "id": "ctet",
+      "name": "CTET photo and signature",
+      "issuer": "Central Board of Secondary Education (CBSE)",
+      "tool": "https://filefleet.io/ctet-photo-signature/",
+      "source": {
+        "label": "CBSE: CTET September 2026 Information Bulletin, section 2(c) and Appendix IV",
+        "url": "https://cdnbbsr.s3waas.gov.in/s3443dec3062d0286986e21dc0631734c9/uploads/2026/05/202605111250310617.pdf"
+      },
+      "checked": "2026-11-12",
+      "note": "From the CTET September 2026 bulletin: the photo is 3.5 × 4.5 cm and 10–100 KB, the signature 3.5 × 1.5 cm and 3–30 KB, both JPG. FileFleet makes them 350 × 450 and 350 × 150 pixels, the same shapes.",
+      "group": "exam",
+      "aliases": "ctet cbse central teacher eligibility test teacher kvs nvs india",
+      "rejections": [
+        "A photo over 100 KB, or a signature over 30 KB, which phone photos always are.",
+        "The wrong shape: the photo must be 3.5 × 4.5 and the signature 3.5 × 1.5.",
+        "A file that isn’t a JPG, such as a PNG or a PDF."
+      ],
+      "uploads": [
+        {
+          "id": "photo",
+          "label": "Photograph",
+          "kind": "face",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 10,
+          "maxKb": 100,
+          "rules": [
+            "A recent photograph."
+          ],
+          "summary": "JPG, 10 KB to 100 KB"
+        },
+        {
+          "id": "signature",
+          "label": "Signature",
+          "kind": "signature",
+          "formats": [
+            "jpg"
+          ],
+          "minKb": 3,
+          "maxKb": 30,
+          "rules": [],
+          "summary": "JPG, 3 KB to 30 KB"
         }
       ]
     }
