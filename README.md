@@ -1,5 +1,7 @@
 # FileFleet MCP server
 
+[![FileFleet MCP server](https://mcprush.com/badge/filefleet-mcp/card.svg)](https://mcprush.com/to/filefleet-mcp?ref=badge)
+
 An MCP server that tells AI assistants what upload forms accept, checks files against those rules, and makes links that fix files to fit. It powers FileFleet in Claude, ChatGPT and any other MCP client.
 
 - **Hosted endpoint:** `https://mcp.filefleet.io/mcp` (Streamable HTTP, stateless, no authentication, free)
